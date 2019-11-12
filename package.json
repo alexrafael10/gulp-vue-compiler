@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/frandiox/gulp-vue-compiler#readme",
   "dependencies": {
-    "babel-core": "^6.26.0",
+    "@babel/core": "^7.x.x",
     "plugin-error": "^1.0.1",
     "replace-ext": "^1.0.0",
     "through2": "^2.0.5",

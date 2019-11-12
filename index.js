@@ -6,7 +6,7 @@ var through = require('through2');
 var PluginError = require('plugin-error')
 var replaceExtension = require('replace-ext');
 var compiler = require('vue-component-compiler');
-var babel = require('babel-core');
+var babel = require('@babel/core');
 var path = require('path');
 
 var PLUGIN_NAME = 'gulp-vue-compiler';
@@ -50,7 +50,7 @@ function gulpVueCompiler (options) {
       script = script.replace(replaceExport, 'var __script__ =');
       template = template.replace(replaceExport, 'var __template__ =');
       var component = [script, template, exportDefault + ' Object.assign({}, __script__, __template__);'].join('\n\n');
-      component = babel.transform(component, options.babel).code;
+      component = babel.transformSync(component, options.babel).code;
 
       file.contents = new Buffer(component);
       callback(null, file);
